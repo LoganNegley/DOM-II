@@ -4,14 +4,10 @@ const mainBackground = document.querySelector("body");
 const navBackground = document.querySelector(".main-navigation");
 const footerBackground = document.querySelector(".footer");
 
-document.addEventListener("keypress", function(key) {
-  if (key.keyCode === 13) {
-    mainBackground.style.backgroundColor = "#28fff4";
-    navBackground.style.backgroundColor = "#60ff10";
-    footerBackground.style.backgroundColor = "#fb10ff";
-  } else {
-    alert("Press enter to change background color");
-  }
+document.addEventListener("wheel", function() {
+  mainBackground.style.backgroundColor = "#28fff4";
+  navBackground.style.backgroundColor = "#60ff10";
+  footerBackground.style.backgroundColor = "#fb10ff";
 });
 
 // Adding border to first image
@@ -64,21 +60,42 @@ turn.addEventListener("mouseleave", () => {
 });
 
 //Each element of first card on the bottom changes different colors
-const bottomH4 = document.querySelector(".destination h4");
-const bottomParagraph = document.querySelector(".destination p");
+// stopping propagation at div
+const bottomSection = document.querySelector(".content-pick");
+const bottomDiv = document.querySelector(".destination");
 const bottomButton = document.querySelector(".destination div");
-console.log(bottomH4);
-console.log(bottomParagraph);
-console.log(bottomButton);
 
-bottomH4.addEventListener("dblclick", () => {
-  bottomH4.style.backgroundColor = "#ff12f7";
+bottomSection.addEventListener("dblclick", () => {
+  bottomSection.style.backgroundColor = "#ff12f7";
 });
 
-bottomParagraph.addEventListener("dblclick", () => {
-  bottomParagraph.style.backgroundColor = "#ffee00";
+bottomDiv.addEventListener("dblclick", event => {
+  bottomDiv.style.backgroundColor = "#ffee00";
+  event.stopPropagation();
 });
 
 bottomButton.addEventListener("dblclick", () => {
   bottomButton.style.backgroundColor = "#ff8000";
 });
+
+//Enlarging all images on mouseover and back to narmal size on mouseleave
+const biggerImg = document.querySelectorAll("img");
+
+biggerImg.forEach(image => {
+  image.addEventListener("mouseover", () => {
+    image.style.transform = "scale(1.5)";
+  });
+  image.addEventListener("mouseleave", () => {
+    image.style.transform = "scale(1.0)";
+  });
+});
+
+//Changes date of footer on mouseover
+const footerText = document.querySelector(".footer p");
+
+footerText.addEventListener("mouseover", () => {
+  footerText.textContent = new Date();
+});
+
+//Change color of all H4 when resizing screen
+const allH4 = document.querySelectorAll("h4");
