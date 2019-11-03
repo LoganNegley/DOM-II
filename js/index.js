@@ -108,3 +108,15 @@ document.addEventListener("keypress", function(key) {
     alert("Press enter to see change");
   }
 });
+
+//Changes text size of paragraph on hover
+const allParagraphs = document.querySelectorAll("p");
+
+allParagraphs.forEach(item => {
+  item.addEventListener("mouseover", () => {
+    item.style.fontSize = "3rem";
+  });
+  item.addEventListener("mouseleave", () => {
+    item.style.fontSize = "1.6rem";
+  });
+});
