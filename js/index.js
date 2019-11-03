@@ -1,5 +1,5 @@
 // Your code goes here
-
+//Changing backgrounds
 const mainBackground = document.querySelector("body");
 const navBackground = document.querySelector(".main-navigation");
 const footerBackground = document.querySelector(".footer");
@@ -14,18 +14,28 @@ document.addEventListener("keypress", function(key) {
   }
 });
 
+// Adding border to first image
 const firstImg = document.querySelector(".intro img");
 
 firstImg.addEventListener("click", function() {
   firstImg.style.border = "solid red 4px";
 });
 
+// Making logo bigger
 const logo = document.querySelector(".container .logo-heading");
 
 logo.addEventListener("mouseover", () => {
   logo.style.fontSize = "7rem";
+
+  logo.addEventListener("mouseleave", () => {
+    logo.style.fontSize = "3rem";
+    logo.style.color = "black";
+  });
 });
 
+// Links get bigger and change colors
+// Links prevent Default
+// Links go back to normal size and color
 const links = document.querySelectorAll(".nav-link");
 console.log(links);
 links.forEach(function(item) {
@@ -37,5 +47,9 @@ links.forEach(function(item) {
   item.addEventListener("mouseleave", () => {
     item.style.fontSize = "1.6rem";
     item.style.color = "black";
+  });
+
+  item.addEventListener("click", event => {
+    event.preventDefault();
   });
 });
