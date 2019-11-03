@@ -98,4 +98,12 @@ footerText.addEventListener("mouseover", () => {
 });
 
 //Change color of all H4 when resizing screen
-const allH4 = document.querySelectorAll("h4");
+const allH4 = document.querySelector("h4");
+
+allH4.addEventListener("keypress", key => {
+  if (KeyboardEvent.code === 13) {
+    allH4.style.color = "red";
+  } else {
+    alert("Press enter to change colors of all h4 to blue");
+  }
+});
