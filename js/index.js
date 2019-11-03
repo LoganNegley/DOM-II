@@ -97,13 +97,14 @@ footerText.addEventListener("mouseover", () => {
   footerText.textContent = new Date();
 });
 
-//Change color of all H4 when resizing screen
-const allH4 = document.querySelector("h4");
-
-allH4.addEventListener("keypress", key => {
-  if (KeyboardEvent.code === 13) {
-    allH4.style.color = "red";
+//Change color and size of Welcome to Fun Bus
+const header = document.querySelector("h2");
+console.log(header);
+document.addEventListener("keypress", function(key) {
+  if (key.keyCode === 13) {
+    header.style.color = "red";
+    header.style.fontSize = "7rem";
   } else {
-    alert("Press enter to change colors of all h4 to blue");
+    alert("Press enter to see change");
   }
 });
