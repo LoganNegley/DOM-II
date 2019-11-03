@@ -37,7 +37,6 @@ logo.addEventListener("mouseover", () => {
 // Links prevent Default
 // Links go back to normal size and color
 const links = document.querySelectorAll(".nav-link");
-console.log(links);
 links.forEach(function(item) {
   item.addEventListener("mouseover", () => {
     item.style.fontSize = "4rem";
@@ -52,4 +51,34 @@ links.forEach(function(item) {
   item.addEventListener("click", event => {
     event.preventDefault();
   });
+});
+
+//Make first paragraph bigger then back to normal
+const turn = document.querySelector(".intro p");
+
+turn.addEventListener("click", () => {
+  turn.style.transform = "scale(1.5)";
+});
+turn.addEventListener("mouseleave", () => {
+  turn.style.transform = "scale(1.0)";
+});
+
+//Each element of first card on the bottom changes different colors
+const bottomH4 = document.querySelector(".destination h4");
+const bottomParagraph = document.querySelector(".destination p");
+const bottomButton = document.querySelector(".destination div");
+console.log(bottomH4);
+console.log(bottomParagraph);
+console.log(bottomButton);
+
+bottomH4.addEventListener("dblclick", () => {
+  bottomH4.style.backgroundColor = "#ff12f7";
+});
+
+bottomParagraph.addEventListener("dblclick", () => {
+  bottomParagraph.style.backgroundColor = "#ffee00";
+});
+
+bottomButton.addEventListener("dblclick", () => {
+  bottomButton.style.backgroundColor = "#ff8000";
 });
