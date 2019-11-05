@@ -155,4 +155,10 @@ secondButton.addEventListener("drag", () => {
 
 //Stretch part One
 
-biggerImg;
+TweenMax.from("img", 2, {
+  scale: 0
+});
+
+TweenMax.to("img", 4, {
+  rotation: 360
+});
