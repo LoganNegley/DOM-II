@@ -69,13 +69,13 @@ bottomSection.addEventListener("dblclick", () => {
   bottomSection.style.backgroundColor = "#ff12f7";
 });
 
-bottomDiv.addEventListener("dblclick", event => {
+bottomDiv.addEventListener("dblclick", () => {
   bottomDiv.style.backgroundColor = "#ffee00";
-  event.stopPropagation();
 });
 
-bottomButton.addEventListener("dblclick", () => {
+bottomButton.addEventListener("dblclick", event => {
   bottomButton.style.backgroundColor = "#ff8000";
+  event.stopPropagation();
 });
 
 //Enlarging all images on mouseover and back to narmal size on mouseleave
@@ -99,7 +99,6 @@ footerText.addEventListener("mouseover", () => {
 
 //Change color and size of Welcome to Fun Bus
 const header = document.querySelector("h2");
-console.log(header);
 document.addEventListener("keypress", function(key) {
   if (key.keyCode === 13) {
     header.style.color = "red";
@@ -120,3 +119,40 @@ allParagraphs.forEach(item => {
     item.style.fontSize = "1.6rem";
   });
 });
+
+//Resize event changing all buttons to purple
+const allButtons = document.querySelectorAll(".btn");
+
+allButtons.forEach(buttons => {
+  window.addEventListener("resize", () => {
+    buttons.style.backgroundColor = "purple";
+  });
+});
+
+const h4Headers = document.querySelectorAll("h2");
+
+h4Headers.forEach(headers => {
+  window.addEventListener("scroll", () => {
+    headers.style.color = "blue";
+    headers.style.fontSize = "4rem";
+  });
+});
+
+//changing font color of the last button to red
+const lastButton = document.querySelectorAll(".btn")[2];
+lastButton.addEventListener("mouseenter", () => {
+  lastButton.style.color = "red";
+  lastButton.style.backgroundColor = "yellow";
+});
+
+const secondButton = document.querySelectorAll(".btn")[1];
+secondButton.addEventListener("drag", () => {
+  secondButton.setAttribute.draggable = "true";
+  secondButton.style.color = "limeGreen";
+  secondButton.style.backgroundColor = "white";
+  secondButton.style.borderRadius = "5px";
+});
+
+//Stretch part One
+
+biggerImg;
